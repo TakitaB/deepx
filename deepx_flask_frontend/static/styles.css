@@ -1,0 +1,16 @@
+
+.hero {
+  background-color:#1c1d25;
+  height: 100 vh;
+  color: white;
+  font-size: 40px;
+  }
+
+
+
+.hero-area{
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  }
