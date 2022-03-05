@@ -11698,3 +11698,13 @@ body {
 .footer {
   padding: 5rem 0;
 }
+
+.grid-container{
+  height: 50px;
+}
+
+.grid{
+  display: grid;
+  padding: 30px;
+  place-items: center;
+}

@@ -13,6 +13,9 @@
         <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
         <link href="static/styles.css" rel="stylesheet"/>
     </head>
     <body id="page-top">
@@ -26,7 +29,9 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="#about">About Deep X</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contacts">Contact Us!</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacts">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#deepX">Deep X Source Code</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -53,39 +58,67 @@
         <!-- Projects-->
         <section class="projects-section bg-light" id="projects">
             <div class="container px-4 px-lg-5">
+              <!-- Upload image square-->
+              <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
+                <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="..." /></div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="featured-text text-center text-lg-left">
+                        <h4>Hello:</h4>
+
+                </div>
+            </div>
+
                 <!-- Featured Project Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
                     <div class="col-xl-8 col-lg-7"><img class="img-fluid mb-3 mb-lg-0" src="assets/img/bg-masthead.jpg" alt="..." /></div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="featured-text text-center text-lg-left">
-                            <h4>About the project</h4>
-                            <p class="text-black-50 mb-0">Deep X is a GAN absed Neural Network whose aim is to generate fashionable item of clothing, starting from a simple input image. It is a tool used to create new designs based off of the top leading fashion trends.
-                              To start using DeepX, upload an image of the the item of clothing you wish to generate similar items of clothing from, and wath the Neural Network do its magic!
+                            <h4>About the project:</h4>
+                            <p class="text-black-50 mb-0">Deep X is a GAN based Neural Network that aims to generate fashionable items of clothing, starting from a simple input image a user submits to the website.
+                               It is a tool used to create new designs based off of the top leading fashion trends.
+                              To start using DeepX, upload an image of the item of clothing you wish to generate similar items of clothing from, and watch the Neural Network do its magic!
 
                             </p>
                         </div>
                     </div>
                 </div>
 
+
+
+
                 <!-- Project Two Row-->
                 <div class="row gx-0 justify-content-center">
                     <div class="col-lg-6"><img class="img-fluid" src="assets/img/demo-image-02.jpg" alt="..." /></div>
                     <div class="col-lg-6 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
 
-                              <form method="post" enctype="multipart/form-data">
-                                {{ form.hidden_tag() }}
-                                {{ form.file }}
-                                <input type="submit">
-                              </form>
+                              <div class="bg-dark" style="max-width: 100%;">
+                                <div class="card-body">
+                                  <h5 class="card-title text-white m-0 grid" >Upload a Picture!</h5>
+                                  <br>
+                                  {% with messages =  get_flashed_messages ()%}
+                                  {%if messages %}
+                                  {%for message in messages %}
+                                  <p class="card-text text-white grid">{{message}}</p>
+                                          {%endfor%}
+                                      {%endif%}
+                                  {%endwith%}
+                                  <p class="card-text text-white-50 grid">Upload a picture of an item of clothing and watch the neural network generate more clothing!
+                                    Only files with the 'jpg' file extension are allowed</p>
+                                    <form class="card-body grid" method="post" enctype="multipart/form-data">
+                                      {{ form.hidden_tag()}}
+                                      {{ form.file }}
+                                      <button class="btn btn-primary grid" type="submit">Submit!</button>
+                                    </form>
 
-                            </div>
-                        </div>
+                                  </div>
+                              </div>
                     </div>
                 </div>
             </div>
         </section>
+
+
 
         <section id="contacts" class="contact-section bg-black">
             <div class="container px-4 px-lg-5">
@@ -118,7 +151,8 @@
                             </div>
                         </div>
                     </div>
-
+                    <div clas="grid-container">
+                    <div class="grid">
                     <div class="col-md-4 mb-3 mb-md-0">
                         <div class="card py-4 h-100">
                             <div class="card-body text-center">
@@ -129,12 +163,22 @@
                         </div>
                     </div>
                   </div>
+                  </div>
+                </div>
+
+                  <div class="social d-flex justify-content-center">
+                    <h4 class="text-uppercase m-0 text-white-50">Check out the Source Code of the model:</h4>
+                </div>
 
 
                 <div class="social d-flex justify-content-center">
-                    <a class="mx-2" href="https://github.com/TakitaB/deepx"><i class="fab fa-github"></i></a>
+                    <a class="mx-2" href="https://github.com/TakitaB/deepx"><i id=deepX class="fab fa-github"></i></a>
                 </div>
+                <br>
+                <i class="bg-black small text-center text-white-50 grid"> Deep X Github</i>
+
             </div>
+
         </section>
         <!-- Footer-->
         <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Le Wagon Data Science  batch 805 2022</div></footer>
